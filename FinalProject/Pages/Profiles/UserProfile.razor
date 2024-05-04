@@ -1,0 +1,29 @@
+@page "/profiles/{userId}"
+@inject ProfileService ProfileService
+
+<h3>User Profile</h3>
+
+@if (userProfile != null)
+{
+    <div>
+        <p><strong>Name:</strong> @userProfile.Name</p>
+        <p><strong>Email:</strong> @userProfile.Email</p>
+        <p><strong>Bio:</strong> @userProfile.Bio</p>
+    </div>
+}
+else
+{
+    <p>User profile not found.</p>
+}
+
+@code {
+    [Parameter]
+    public string UserId { get; set; }
+
+    private UserProfile userProfile;
+
+    protected override async Task OnInitializedAsync()
+    {
+        userProfile = await ProfileService.GetUserProfile(UserId);
+    }
+}

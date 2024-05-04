@@ -1,0 +1,20 @@
+@code {
+    [Parameter]
+    public int PostId { get; set; }
+
+    [Inject]
+    private LikeService LikeService { get; set; }
+
+    private bool canLike = true;
+
+    private async Task Like()
+    {
+        if (canLike)
+        {
+            await LikeService.LikePost(PostId, CurrentUserId); 
+            canLike = false;
+        }
+    }
+}
+
+<button @onclick="Like" disabled="!canLike">Like</button>

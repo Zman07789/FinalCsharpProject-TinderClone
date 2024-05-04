@@ -1,0 +1,39 @@
+@page "/profiles/update"
+@inject ProfileService ProfileService
+
+<h3>Update Profile</h3>
+
+@if (userProfile != null)
+{
+    <div>
+        <label>Name:</label>
+        <input @bind="userProfile.Name" />
+
+        <label>Email:</label>
+        <input @bind="userProfile.Email" />
+
+        <label>Bio:</label>
+        <textarea @bind="userProfile.Bio"></textarea>
+
+        <button @onclick="UpdateProfile">Update</button>
+    </div>
+}
+else
+{
+    <p>User profile not found.</p>
+}
+
+@code {
+    private UserProfile userProfile;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+        userProfile = await ProfileService.GetUserProfile(CurrentUserId); 
+    }
+
+    private async Task UpdateProfile()
+    {
+        await ProfileService.UpdateUserProfile(userProfile);
+    }
+}

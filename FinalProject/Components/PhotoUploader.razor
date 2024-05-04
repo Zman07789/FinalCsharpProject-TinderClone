@@ -1,0 +1,18 @@
+@code {
+    private string imageUrl;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            imageUrl = await PhotoService.UploadPhoto(file);
+        }
+    }
+}
+
+<input type="file" @onchange="HandleFileSelected" />
+@if (!string.IsNullOrEmpty(imageUrl))
+{
+    <img src="@imageUrl" alt="Uploaded Photo" />
+}

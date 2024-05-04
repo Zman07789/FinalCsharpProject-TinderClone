@@ -1,0 +1,28 @@
+@page "/matches"
+@inject MatchService MatchService
+
+<h3>Matches</h3>
+
+@if (matches != null && matches.Any())
+{
+    <ul>
+        @foreach (var match in matches)
+        {
+            <li>@match.Name</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No matches found.</p>
+}
+
+@code {
+    private List<UserProfile> matches;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        matches = await MatchService.GetMatches(CurrentUserId); 
+    }
+}

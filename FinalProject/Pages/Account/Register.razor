@@ -1,0 +1,46 @@
+@page "/account/register"
+@inject AuthService AuthService
+@inject NavigationManager NavigationManager
+
+<h3>Register</h3>
+
+@if (result != null && result.Succeeded)
+{
+    <p>Registration successful. You can now <a href="/account/login">login</a>.</p>
+}
+else
+{
+    <div>
+        <label>Email:</label>
+        <input @bind="model.Email" />
+
+        <label>Password:</label>
+        <input type="password" @bind="model.Password" />
+
+        <label>Confirm Password:</label>
+        <input type="password" @bind="model.ConfirmPassword" />
+
+        <button @onclick="Register">Register</button>
+    </div>
+
+    @if (result != null && !result.Succeeded)
+    {
+        <p>Registration failed:</p>
+        <ul>
+            @foreach (var error in result.Errors)
+            {
+                <li>@error.Description</li>
+            }
+        </ul>
+    }
+}
+
+@code {
+    private RegisterViewModel model = new RegisterViewModel();
+    private IdentityResult result;
+
+    private async Task Register()
+    {
+        result = await AuthService.Register(model);
+    }
+}

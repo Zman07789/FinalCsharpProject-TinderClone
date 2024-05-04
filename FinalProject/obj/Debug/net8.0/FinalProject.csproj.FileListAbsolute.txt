@@ -1,0 +1,10 @@
+/Users/zackpaulson/FinalC#Project/FinalProject/obj/Debug/net8.0/FinalProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zackpaulson/FinalC#Project/FinalProject/obj/Debug/net8.0/FinalProject.AssemblyInfoInputs.cache
+/Users/zackpaulson/FinalC#Project/FinalProject/obj/Debug/net8.0/FinalProject.AssemblyInfo.cs
+/Users/zackpaulson/FinalC#Project/FinalProject/obj/Debug/net8.0/FinalProject.csproj.CoreCompileInputs.cache
+/Users/zackpaulson/FinalC#Project/FinalProject/obj/Debug/net8.0/FinalProject.csproj.AssemblyReference.cache
+/Users/zackpaulson/FinalCsharpProject/FinalProject/obj/Debug/net8.0/FinalProject.csproj.AssemblyReference.cache
+/Users/zackpaulson/FinalCsharpProject/FinalProject/obj/Debug/net8.0/FinalProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zackpaulson/FinalCsharpProject/FinalProject/obj/Debug/net8.0/FinalProject.AssemblyInfoInputs.cache
+/Users/zackpaulson/FinalCsharpProject/FinalProject/obj/Debug/net8.0/FinalProject.AssemblyInfo.cs
+/Users/zackpaulson/FinalCsharpProject/FinalProject/obj/Debug/net8.0/FinalProject.csproj.CoreCompileInputs.cache

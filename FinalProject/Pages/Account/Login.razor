@@ -1,0 +1,41 @@
+@page "/account/login"
+@inject AuthService AuthService
+@inject NavigationManager NavigationManager
+
+<h3>Login</h3>
+
+@if (result != null && result.Succeeded)
+{
+    <p>Login successful. Redirecting...</p>
+}
+else
+{
+    <div>
+        <label>Email:</label>
+        <input @bind="model.Email" />
+
+        <label>Password:</label>
+        <input type="password" @bind="model.Password" />
+
+        <button @onclick="Login">Login</button>
+    </div>
+
+    @if (result != null && !result.Succeeded)
+    {
+        <p>Login failed. Please check your credentials.</p>
+    }
+}
+
+@code {
+    private LoginViewModel model = new LoginViewModel();
+    private SignInResult result;
+
+    private async Task Login()
+    {
+        result = await AuthService.Login(model);
+        if (result.Succeeded)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+}
